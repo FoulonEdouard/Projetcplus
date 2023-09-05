@@ -10,6 +10,7 @@
 #include<QString>
 #include<QIODevice>
 #include <QMainWindow>
+#include<QDir>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,6 +26,7 @@ public:
 
 private slots:
     void ouvrir_fichier();
+    void creer_doc();
 private:
     Ui::MainWindow *ui;
 };

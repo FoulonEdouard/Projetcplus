@@ -29,6 +29,7 @@ public:
     QAction *actionOuvrir;
     QAction *actionSauvegarder;
     QAction *actionSave_as;
+    QAction *actionNew;
     QWidget *centralwidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -52,6 +53,8 @@ public:
         actionSauvegarder->setObjectName(QString::fromUtf8("actionSauvegarder"));
         actionSave_as = new QAction(MainWindow);
         actionSave_as->setObjectName(QString::fromUtf8("actionSave_as"));
+        actionNew = new QAction(MainWindow);
+        actionNew->setObjectName(QString::fromUtf8("actionNew"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout_2 = new QHBoxLayout(centralwidget);
@@ -95,6 +98,7 @@ public:
         menuFichier->addAction(actionOuvrir);
         menuFichier->addAction(actionSauvegarder);
         menuFichier->addAction(actionSave_as);
+        menuFichier->addAction(actionNew);
 
         retranslateUi(MainWindow);
 
@@ -107,6 +111,7 @@ public:
         actionOuvrir->setText(QCoreApplication::translate("MainWindow", "Ouvrir", nullptr));
         actionSauvegarder->setText(QCoreApplication::translate("MainWindow", "Sauvegarder", nullptr));
         actionSave_as->setText(QCoreApplication::translate("MainWindow", "Save as", nullptr));
+        actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
         menuFichier->setTitle(QCoreApplication::translate("MainWindow", "Fichier", nullptr));
         menurecherche->setTitle(QCoreApplication::translate("MainWindow", "Edition", nullptr));
         menuFormat->setTitle(QCoreApplication::translate("MainWindow", "Format", nullptr));
