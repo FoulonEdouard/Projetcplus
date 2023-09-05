@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -31,10 +32,14 @@ public:
     QAction *actionSave_as;
     QAction *actionNew;
     QWidget *centralwidget;
-    QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
+    QTabWidget *tabWidget;
+    QWidget *Onglet1;
+    QVBoxLayout *verticalLayout_2;
     QTextEdit *textEdit;
+    QWidget *onglet2;
+    QHBoxLayout *horizontalLayout;
+    QTextEdit *textEdit_2;
     QMenuBar *menubar;
     QMenu *menuFichier;
     QMenu *menurecherche;
@@ -57,22 +62,34 @@ public:
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        horizontalLayout_2 = new QHBoxLayout(centralwidget);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        verticalLayout = new QVBoxLayout();
+        verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        textEdit = new QTextEdit(centralwidget);
+        tabWidget = new QTabWidget(centralwidget);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setTabsClosable(true);
+        Onglet1 = new QWidget();
+        Onglet1->setObjectName(QString::fromUtf8("Onglet1"));
+        verticalLayout_2 = new QVBoxLayout(Onglet1);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        textEdit = new QTextEdit(Onglet1);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
 
-        verticalLayout->addWidget(textEdit);
+        verticalLayout_2->addWidget(textEdit);
 
+        tabWidget->addTab(Onglet1, QString());
+        onglet2 = new QWidget();
+        onglet2->setObjectName(QString::fromUtf8("onglet2"));
+        onglet2->setEnabled(true);
+        horizontalLayout = new QHBoxLayout(onglet2);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        textEdit_2 = new QTextEdit(onglet2);
+        textEdit_2->setObjectName(QString::fromUtf8("textEdit_2"));
 
-        horizontalLayout_2->addLayout(verticalLayout);
+        horizontalLayout->addWidget(textEdit_2);
+
+        tabWidget->addTab(onglet2, QString());
+
+        verticalLayout->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -102,6 +119,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        tabWidget->setCurrentIndex(1);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -112,6 +132,11 @@ public:
         actionSauvegarder->setText(QCoreApplication::translate("MainWindow", "Sauvegarder", nullptr));
         actionSave_as->setText(QCoreApplication::translate("MainWindow", "Save as", nullptr));
         actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
+#if QT_CONFIG(accessibility)
+        tabWidget->setAccessibleName(QString());
+#endif // QT_CONFIG(accessibility)
+        tabWidget->setTabText(tabWidget->indexOf(Onglet1), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(onglet2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
         menuFichier->setTitle(QCoreApplication::translate("MainWindow", "Fichier", nullptr));
         menurecherche->setTitle(QCoreApplication::translate("MainWindow", "Edition", nullptr));
         menuFormat->setTitle(QCoreApplication::translate("MainWindow", "Format", nullptr));

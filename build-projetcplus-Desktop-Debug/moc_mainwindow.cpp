@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[4];
-    char stringdata0[37];
+    char stringdata0[40];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,10 @@ static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 14), // "ouvrir_fichier"
 QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 9) // "creer_doc"
+QT_MOC_LITERAL(3, 27, 12) // "creer_onglet"
 
     },
-    "MainWindow\0ouvrir_fichier\0\0creer_doc"
+    "MainWindow\0ouvrir_fichier\0\0creer_onglet"
 };
 #undef QT_MOC_LITERAL
 
@@ -73,7 +73,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->ouvrir_fichier(); break;
-        case 1: _t->creer_doc(); break;
+        case 1: _t->creer_onglet(); break;
         default: ;
         }
     }
